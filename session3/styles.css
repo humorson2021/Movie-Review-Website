@@ -24,3 +24,20 @@ h1{
     margin: 10px 0 10px;
 }
 
+a[href="https://github.com"]:hover{
+    color: crimson;
+}
+
+a[href="https://github.com"]::after{
+    content: "";
+    background-image: url("images/GitHub_Logo.png");
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+
+}
+
+h2::first-letter{
+    font-size: 3rem;
+}
