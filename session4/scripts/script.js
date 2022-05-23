@@ -17,15 +17,15 @@ do{
 alert(`welcome ${user}!`);
 
 
-function totalprice(bill, taxrate = 0.12, tiprate = 0.15){
+function totalPrice(bill, taxrate = 0.12, tiprate = 0.15){
     return bill * (1 + taxrate + tiprate);
 }
 
-function printprice(func, billamount){
+function printPrice(func, billamount){
     console.log(func(billamount));
 }
 
-printprice(totalprice, 100);
+printPrice(totalPrice, 100);
 
 let car = {
     make:"mazda",
@@ -36,3 +36,40 @@ let car = {
 for(let key in car){
     console.log(key, car[key]);
 }
+
+let students = [
+    {
+        name: "Cristian",
+        age: 30,
+        location: "Vancouver"
+    },
+    {
+        name: "James",
+        age: 40,
+        location: "Toronto"
+    },
+    {
+        name: "Garry",
+        age: 20,
+        location: "Vancouver"
+    }
+];
+
+let student;
+function studentInV(students) {
+    for (student of students) {
+        if (student.location === "Vancouver") {
+            console.log(student);
+        }
+    }
+}
+studentInV(students);
+
+function studentOlderThan30(students) {
+    for (student of students) {
+        if (student.age >= 30) {
+            console.log(student);
+        }
+    }
+}
+studentOlderThan30(students);
