@@ -52,3 +52,55 @@ function greenItem() {
 }
 
 greenItem();
+
+let updateImageButton = document.querySelector('#updateImage');
+//updateImageButton.textContent = localStorage.getItem('buttonText')?
+//localStorage.getItem('buttonText'):'Click Me!';
+updateImageButton.textContent = localStorage.getItem('buttonText') ||'Click Me!';
+function changeButtonText()
+{
+    if(updateImageButton.textContent === 'Click Me!')
+    {
+        updateImageButton.textContent = "Clicked!";
+        localStorage.setItem('buttonText','Clicked!');
+    }
+    else{
+        updateImageButton.textContent = "Click Me!";
+        localStorage.setItem('butonText', 'Click Me!');
+    }
+}
+
+updateImageButton.addEventListener('click',changeButtonText);
+
+function changeImageShoppingCart(e)
+{
+    console.log(e)
+    let shoppingCartImage = document.querySelector('#shoppingCart');
+    shoppingCartImage.src = "images/shoppingCart.png"
+    shoppingCartImage.alt = "shopping Cart icon"
+    shoppingCartImage.width = 50;
+    shoppingCartImage.height= 50;
+}
+updateImageButton.addEventListener('click',changeImageShoppingCart,{once:true});
+
+// let buttons = document.querySelectorAll('img ~ button');
+// for (let button of buttons)
+// {
+//     button.addEventListener('mouseover', changeButtonColor)
+// }
+
+let buttonContainer = document.querySelector('div');
+buttonContainer.addEventListener('mouseover', changeButtonColor);
+function changeButtonColor(event)
+{
+   event.target.style.backgroundColor = event.target.textContent;
+}
+
+
+list.addEventListener('click', addStrikethrough);
+function addStrikethrough()
+{
+    for (let item of list) {
+        item.classList.add('addLineThrough');
+    }
+}

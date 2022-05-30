@@ -12,3 +12,7 @@
 .greenItem {
     color: green;
 }
+
+.addLineThrough {
+    text-decoration:line-through;
+}
