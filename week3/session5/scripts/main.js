@@ -8,7 +8,7 @@
 
 // let number = getNumber();
 let radius = document.querySelector("#radius");
-radius.classList.add('paragraph');
+radius.classList.toggle('paragraph');
 //radius.setAttribute("class", "paragraph");
 //radius.style = "color:red";
 
@@ -19,8 +19,9 @@ radius.classList.add('paragraph');
 //     return area;
 // }
 
-let shoppingItems = ['bread', 'cheese', 'green pepper'];
+let shoppingItems = ["bread", "cheese", "green pepper"];
 let list = document.querySelector('.shopping');
+
 function updateShoppingList(items) 
 {
     for (let item of items)
@@ -34,16 +35,16 @@ function updateShoppingList(items)
 
 updateShoppingList(shoppingItems);
 
-function squareList(list) {
-    for (let item of list) {
-        item = Math.pow(item, 2);
-    }
+//activity 3
+function squareList() {
+    list.classList.add("squareList");
 }
+squareList();
 
 function greenItem() {
     let listItems = document.querySelectorAll('.shopping li');
     for (let item of listItems) {
-        if (item.includes("green")) {
+        if (item.textContent.includes('green')) {
             item.classList.add('greenItem');
         }
     }
