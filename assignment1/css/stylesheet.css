@@ -4,8 +4,11 @@ body {
     background-position: center;
     background-size: cover;
     height: 100%;
-    width: 80vw;
     font-family: 'Roboto', sans-serif;
+}
+
+main {
+    width: 80%;
 }
 
 nav {
