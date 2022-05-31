@@ -11,7 +11,7 @@ main {
     width: 80%;
 }
 
-nav {
+nav p{
     background-color: rgb(72, 141, 226);
     z-index: 1;
     position: fixed;
@@ -36,6 +36,11 @@ figure {
 }
 
 a:visited { color: brown; } 
+
+a[href="https://www.northeastern.edu/"] {
+    position: relative;
+    top: 20px;
+}
 
 #foot {
     position:relative;
@@ -68,5 +73,11 @@ button {
     background-image: none;
     background-color: rgb(33,33,33);
     color: aliceblue;
+}
+
+section {
+    position: relative;
+    top: 20px;
+    left: 20px;
 }
 
