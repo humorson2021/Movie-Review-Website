@@ -13,14 +13,13 @@ main {
 
 nav {
     background-color: rgb(72, 141, 226);
-    text-align: center;
-    display: flex;
-    justify-content: space-evenly;
     z-index: 1;
+    position: fixed;
 }
 
 nav a {
-    margin: 70px;
+    display: flex;
+    margin: 20px;
 }
 
 header {
@@ -57,3 +56,17 @@ footer img {
     background-size: cover;
     display: inline-block;
 } */
+
+button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* z-index: 2; */
+}
+
+.dark {
+    background-image: none;
+    background-color: rgb(33,33,33);
+    color: aliceblue;
+}
+
