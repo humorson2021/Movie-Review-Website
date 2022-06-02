@@ -7,7 +7,8 @@ router.get('/', function(req, res) {
 
 router.get('/:taskId', function(req, res) {
     console.log(req.params);
-    res.send(`You are viewing task ${req.params.taskId}`)
+    // res.send(`You are viewing task ${req.params.taskId}`)
+    res.render('task.pug', {id:req.params.taskId})
 });
 
 router.get('/:taskId/user/:username', (req, res) => {
