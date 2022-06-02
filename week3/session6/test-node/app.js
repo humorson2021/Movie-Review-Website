@@ -28,10 +28,10 @@ fs.writeFile("data.txt", "Hello there!", (err) => {
 const express = require('express'); 
 const app = express();
 const port = 3000;
-// const tasksRouter = require('./routes/tasks');
+const tasksRouter = require('./routes/tasks');
 // app.set('view', 'views');
-// app.use('/tasks', tasksRouter);
-// app.use(express.static('public')); //static!
+app.use('/tasks', tasksRouter);
+app.use(express.static('public')); //static!
 
 
 app.get('/', function(req, res) {
@@ -40,20 +40,20 @@ app.get('/', function(req, res) {
 app.get('/about', function(req, res) {
     res.send('About!')
 });
-app.get('/tasks', function(req, res) {
-    res.send('<h1>List of all the tasks!</h1>')
-});
+// app.get('/tasks', function(req, res) {
+//     res.send('<h1>List of all the tasks!</h1>')
+// });
 
-app.get('/tasks/:taskId', function(req, res) {
-    console.log(req.params);
-    res.send(`You are viewing task ${req.params.taskId}`)
-});
+// app.get('/tasks/:taskId', function(req, res) {
+//     console.log(req.params);
+//     res.send(`You are viewing task ${req.params.taskId}`)
+// });
 
-app.get('/tasks/:taskId/user/:username', (req, res) => {
-    console.log(req.params);
-    res.send(`You are viewing task ${req.params.taskId} 
-             and ${req.params.username} is responsible for it`)
-});
+// app.get('/tasks/:taskId/user/:username', (req, res) => {
+//     console.log(req.params);
+//     res.send(`You are viewing task ${req.params.taskId} 
+//              and ${req.params.username} is responsible for it`)
+// });
 
 //query
 app.get('/users', (req, res) => {
