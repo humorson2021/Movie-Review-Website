@@ -40,14 +40,32 @@ app.get('/', function(req, res) {
 app.get('/about', function(req, res) {
     res.send('About!')
 });
-// app.get('/tasks', function(req, res) {
-//     res.send('<h1>List of all the tasks!</h1>')
-// });
-// app.get('/tasks/:taskId/user/:username', function(req, res) {
-//     console.log(req.params);
-//     res.send(`You are viewing task ${req.params.taskId} 
-//              and ${req.params.username}`)
-// });
+app.get('/tasks', function(req, res) {
+    res.send('<h1>List of all the tasks!</h1>')
+});
+
+app.get('/tasks/:taskId', function(req, res) {
+    console.log(req.params);
+    res.send(`You are viewing task ${req.params.taskId}`)
+});
+
+app.get('/tasks/:taskId/user/:username', (req, res) => {
+    console.log(req.params);
+    res.send(`You are viewing task ${req.params.taskId} 
+             and ${req.params.username} is responsible for it`)
+});
+
+//query
+app.get('/users', (req, res) => {
+    for (const key in req.query) {
+        console.log(key, req.query[key])
+    }
+    if (!req.query.name || !req.query.course) {
+        res.status(400).send("Bad Request! No!")
+    } else {
+        res.send(`user: ${req.query.name} takes course ${req.query.course}`)
+    }
+})
 
 app.listen(port, function() {
     console.log(`Example app listening on port ${port}!`)
