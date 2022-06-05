@@ -1,4 +1,5 @@
 const fs = require('fs');
+
 const util = require('util');
 const writePromise = util.promisify(fs.writeFile);
 const readPromise = util.promisify(fs.readFile);
@@ -27,16 +28,31 @@ console.log(writePromise);
 // console.log(logger.version);
 
 const express = require('express'); 
+const db = require('./db.js');
+console.log(db);
+
 const app = express();
 const port = 3000;
 const tasksRouter = require('./routes/tasks');
+const { addAbortSignal } = require('stream');
+const e = require('express');
 
 app.set('views', 'views');
 app.set('view engine', 'pug');
 
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
 app.use('/tasks', tasksRouter);
 app.use(express.static('public')); //static!
 
+db.connectToDB() //before listen, first database
+  .then(
+      app.listen(port, function() {
+          console.log(`Example app listening on port ${port}!`)
+      })
+  )
+  .catch((err)=>{console.log(err)});
 
 app.get('/', function(req, res) {
     res.send('Hello World!')
@@ -71,6 +87,6 @@ app.get('/users', (req, res) => {
     }
 })
 
-app.listen(port, function() {
-    console.log(`Example app listening on port ${port}!`)
-});
+// app.listen(port, function() {
+//     console.log(`Example app listening on port ${port}!`)
+// });

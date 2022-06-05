@@ -4,3 +4,8 @@ html(lang="en")
     title= "Task Details" 
   body
     h1 You are viewing task #{id}
+    p Task title is #{title}
+    if completed 
+        p task status: Completed 
+    else 
+        p task status: Not completed
