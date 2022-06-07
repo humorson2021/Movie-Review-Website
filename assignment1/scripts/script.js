@@ -38,15 +38,61 @@ function showDate() {
     } else {
         day = 'Sun';
     }
-    showing.textContent = 'Current Date: ' + day + ' ' + today.getMonth() + 
-                          '/' + today.getDate() + '/' + today.getFullYear();
+    let month = transferMonth(today.getMonth());
+    let date = today.getDate();
+    let s = date + "";
+    if (s.length == 1) {
+        s = "0" + s;
+    }
+    showing.textContent = 'Current Date: ' + day + ' ' + month + 
+                          ' ' + s + ' ' + today.getFullYear();
+}
+
+function transferMonth(mon) {
+    if (mon === 1) {
+        return "Jan";
+    } else if (mon === 2) {
+        return "Feb";
+    } else if (mon === 3) {
+        return "Mar";
+    } else if (mon === 4) {
+        return "Apr";
+    } else if (mon === 5) {
+        return "May";
+    } else if (mon === 6) {
+        return "Jun";
+    } else if (mon === 7) {
+        return "Jul";
+    } else if (mon === 8) {
+        return "Aug";
+    } else if (mon === 9) {
+        return "Sep";
+    } else if (mon === 10) {
+        return "Oct";
+    } else if (mon === 11) {
+        return "Nov";
+    } else if (mon === 12) {
+        return "Dec";
+    }
 }
 
 let buttonTime = document.getElementById('time');
 buttonTime.addEventListener('click', showTime);
 
 function showTime() {
-    let today = new Date();
-    showing.textContent = 'Current Time: ' + today.getHours() + ':' + 
-                          today.getMinutes() + ':' + today.getSeconds();
+    // let today = new Date();
+    // let time = [today.getHours(),today.getMinutes(), today.getSeconds()];
+    // for (item of time) {
+    //     if (item.length == 1) {
+    //         item = "0" + item;
+    //     }
+    // }
+    // showing.textContent = 'Current Time: ' + time[0] + ':' + 
+    //                       time[1] + ':' + time[2];
+    showingTime();
+    setInterval(showingTime, 1000);
+}
+
+function showingTime() {
+    showing.textContent = "Current Time: " + new Date().toLocaleTimeString();
 }
