@@ -2,7 +2,7 @@ import React from "react";
 import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-export default function Task({ task, onDelete }) {
+export default function Task({ movie, onDelete }) {
     // function clicked()
     // {
     //     onDelete(task.id)
@@ -12,10 +12,10 @@ export default function Task({ task, onDelete }) {
       <div className="taskContainer">
         <div className="nameIconContainer">
          {/* <Link to={`/tasks/${task.id}`}> <p>{task.title}</p> </Link> */}
-         <Link to={`${task._id}`}> <p>{task.title}</p> </Link>
-          <FaTimes onClick={() => {onDelete(task._id)}} />
+         <Link to={`${movie.title}`}> <p>{movie.title}</p> </Link>
+          <FaTimes onClick={() => {onDelete(movie._id)}} />
         </div>
-        <p>{task.date}</p>
+        <p>{movie.date}</p>
       </div>
     </li>
   );

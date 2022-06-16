@@ -20,7 +20,7 @@ export default function AddComment() {
         throw Error("POST request failed");
       }
       const data = await response.json();
-      // console.log(data);
+      console.log(data);
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -38,7 +38,7 @@ export default function AddComment() {
           //still working on
         ></input>
       </div>
-      <input type="submit" value="Submit your comment" />
+      <input type="submit" value="Add your comment" />
     </form>
   );
 }

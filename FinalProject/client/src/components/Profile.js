@@ -6,7 +6,7 @@ export default function Profile() {
 //   console.log(user);
   return (
     <div>
-      <img src={user.picture} alt="user's picture" />
+      <img src={user.picture} alt="user's pic" />
       <p>{user.email}</p>
     </div>
   );

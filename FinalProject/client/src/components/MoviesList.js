@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Task from "./Task";
+import Movie from "./Movie";
 
-export default function TasksList() {
-  const [tasks, setTasks] = useState([]);
+export default function MoviesList() {
+  const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     async function fetchData() {
@@ -12,7 +12,7 @@ export default function TasksList() {
           throw Error("Fetch failed");
         }
         const data = await response.json();
-        setTasks(data);
+        setMovies(data);
         setIsLoading(false);
       } catch (err) {
         console.log("catch ", err);
@@ -32,17 +32,17 @@ export default function TasksList() {
     } catch (err) {
       console.log(err);
     }
-    const updatedTasks = tasks.filter((item) => item._id !== deletedId);
-    setTasks(updatedTasks);
+    const updatedMoives = movies.filter((item) => item._id !== deletedId);
+    setMovies(updatedMoives);
   }
   return (
     <>
       {isLoading ? (
         <p> Loading</p>
-      ) : tasks.length > 0 ? (
+      ) : movies.length > 0 ? (
         <>
-          {tasks.map((item) => (
-            <Task key={item._id} task={item} onDelete={deleteClicked} />
+          {movies.map((item) => (
+            <Movie key={item._id} movie={item} onDelete={deleteClicked} />
           ))}
         </>
       ) : (

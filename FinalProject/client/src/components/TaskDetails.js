@@ -10,8 +10,8 @@ import { useParams } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
 
 export default function TaskDetails({ onAddTaskClicked, showForm }) {
-    const {taskId} = useParams();
-    console.log(taskId);
+    const {movieTitle} = useParams();
+    console.log(movieTitle);
     // const [user, setUser] = useState([]);
     // useEffect(() => {
     //     async function fetchUser() {
@@ -32,7 +32,7 @@ export default function TaskDetails({ onAddTaskClicked, showForm }) {
     // console.log (params)
   return (
     <div>
-      You are Viewing movie {taskId}'s details
+      You are Viewing movie {movieTitle}'s details
       <button onClick={onAddTaskClicked}>
         {showForm? "Close" :"Add Comment"}
       </button>

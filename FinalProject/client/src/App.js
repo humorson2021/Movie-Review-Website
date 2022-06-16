@@ -1,6 +1,6 @@
 import AddComment from "./components/AddComment";
 import Header from "./components/Header";
-import TasksList from "./components/TasksList";
+import MoviesList from "./components/MoviesList";
 import React, { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import TaskDetails from "./components/TaskDetails";
@@ -32,7 +32,7 @@ function App() {
             <Header 
             app={appName}
             />
-            <ul><TasksList /></ul>
+            <ul><MoviesList /></ul>
             </>
           }></Route>
 
