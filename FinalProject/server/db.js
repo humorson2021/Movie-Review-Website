@@ -20,9 +20,9 @@ module.exports = {
     },
 
 
-    saveToDB: async function saveToDB(task) {
+    saveToDB: async function saveToDB(movie) {
         try {
-            const result = await client.db("cs5610").collection("movies").insertOne(task);
+            const result = await client.db("cs5610").collection("movies").insertOne(movie);
             console.log(result);
         } catch (err) {
             console.log(err);
@@ -45,6 +45,25 @@ module.exports = {
             const data = await client.db("cs5610").collection("movies").findOne(query);
             return data;
         } catch (err) {
+            console.log(err);
+        }
+    },
+
+    updateOne: async function updateOne(filter, operator) {
+        try {
+            const result = await client.db("cs5610").collection("movies").updateOne(filter, operator);
+            return result;
+        }
+        catch (err) {
+            console.log(err);
+        }
+    },
+    deleteOne: async function deleteOne(filter) {
+        try {
+            const result = await client.db("cs5610").collection("movies").deleteOne(filter);
+            return result;
+        }
+        catch (err) {
             console.log(err);
         }
     }
