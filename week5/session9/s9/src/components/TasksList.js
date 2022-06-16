@@ -32,18 +32,33 @@ export default function TasksList() {
     } catch (err) {
       console.log(err);
     }
-    const updatedTasks = tasks.filter((item) => item.id !== deletedId);
+    const updatedTasks = tasks.filter((item) => item._id !== deletedId);
     setTasks(updatedTasks);
   }
-  return tasks.length > 0 ? (
+  return (
     <>
-      {tasks.map((item) => (
-        <Task key={item.id} task={item} onDelete={deleteClicked} />
-      ))}
+      {isLoading ? (
+        <p> Loading</p>
+      ) : tasks.length > 0 ? (
+        <>
+          {tasks.map((item) => (
+            <Task key={item._id} task={item} onDelete={deleteClicked} />
+          ))}
+        </>
+      ) : (
+        <li>No Tasks Left</li>
+      )}
     </>
-  ) : (
-    <li>No Tasks Left</li>
   );
+  // return tasks.length > 0 ? (
+  //   <>
+  //     {tasks.map((item) => (
+  //       <Task key={item.id} task={item} onDelete={deleteClicked} />
+  //     ))}
+  //   </>
+  // ) : (
+  //   <li>No Tasks Left</li>
+  // );
 }
 
 // async function deleteClicked(deletedId) {
@@ -63,3 +78,4 @@ export default function TasksList() {
 //   ) : (
 //     <li>No Tasks Left</li>
 //   );
+

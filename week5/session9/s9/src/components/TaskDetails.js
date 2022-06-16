@@ -28,7 +28,7 @@ export default function TaskDetails() {
           }
         }
         fetchUser();
-      }, []);
+      }, [taskId]);
     // console.log (params)
   return (
     <div>You are Vieweing Task {taskId} details</div>

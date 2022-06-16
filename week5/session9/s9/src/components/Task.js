@@ -12,8 +12,8 @@ export default function Task({ task, onDelete }) {
       <div className="taskContainer">
         <div className="nameIconContainer">
          {/* <Link to={`/tasks/${task.id}`}> <p>{task.title}</p> </Link> */}
-         <Link to={`${task.id}`}> <p>{task.title}</p> </Link>
-          <FaTimes onClick={() => {onDelete(task.id)}} />
+         <Link to={`${task._id}`}> <p>{task.title}</p> </Link>
+          <FaTimes onClick={() => {onDelete(task._id)}} />
         </div>
         <p>{task.date}</p>
       </div>

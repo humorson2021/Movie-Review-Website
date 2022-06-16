@@ -21,8 +21,8 @@ export default function AddTask() {
         throw Error("POST request failed");
       }
       const data = await response.json();
-      // console.log(data)
-      navigate(`/tasks/${data.id}`);
+      // console.log(data);
+      navigate(`/tasks/${data.Insertedid}`);
     } catch (err) {
       console.log(err);
     }
