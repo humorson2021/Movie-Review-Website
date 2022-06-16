@@ -1,4 +1,4 @@
-import AddTask from "./components/AddTask";
+import AddComment from "./components/AddComment";
 import Header from "./components/Header";
 import TasksList from "./components/TasksList";
 import React, { useState } from "react";
@@ -11,7 +11,7 @@ import Profile from "./components/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-  const appName = "My App";
+  const appName = "My movie reviews";
   const [showForm, setShowForm] = useState(false);
 
   const toggleShowForm = () => {
@@ -21,27 +21,32 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/tasks">Tasks</Link>
+        <Link to="/">Movies</Link>
         <Link to="/profile">Profile</Link>
       </nav>
       {isAuthenticated?<LogoutButton />:<LoginButton />}
       <Routes>
-        <Route
-          path="/"
-          element={
+          <Route path="/" 
+            element={
             <>
-              <Header
-                app={appName}
+            <Header 
+            app={appName}
+            />
+            <ul><TasksList /></ul>
+            </>
+          }></Route>
+
+          <Route path="/:movieTitle" 
+            element={
+            <>
+              <TaskDetails 
                 onAddTaskClicked={toggleShowForm}
                 showForm={showForm}
               />
-              {showForm && <AddTask />}
+              {showForm && <AddComment />}
             </>
-          }
-          ></Route>
-          <Route path="/tasks" element={<ul><TasksList /></ul>}></Route>
-          <Route path="/tasks/:taskId" element={<TaskDetails />}></Route>
+          }></Route>
+
           <Route path="/profile" element={<ProtectedRoute Component={Profile} />}></Route>
           <Route path="*" element={<p>Nothing found here!</p>}></Route>
         </Routes>

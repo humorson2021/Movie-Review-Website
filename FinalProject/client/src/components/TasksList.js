@@ -7,7 +7,7 @@ export default function TasksList() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:5000/tasks");
+        const response = await fetch("http://localhost:5000/movies");
         if (!response.ok) {
           throw Error("Fetch failed");
         }
@@ -24,7 +24,7 @@ export default function TasksList() {
   async function deleteClicked(deletedId) {
     console.log("clicked", deletedId);
     try {
-      const response = await fetch(`http://localhost:5000/tasks/${deletedId}`, {
+      const response = await fetch(`http://localhost:5000/movies/${deletedId}`, {
         method: "DELETE",
       });
       console.log(response);
@@ -46,7 +46,7 @@ export default function TasksList() {
           ))}
         </>
       ) : (
-        <li>No Tasks Left</li>
+        <li>No Movies Left</li>
       )}
     </>
   );

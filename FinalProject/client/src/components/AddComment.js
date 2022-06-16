@@ -2,26 +2,26 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function AddNewReview() {
-  const [reviews, setReviews] = useState([]);
+export default function AddComment() {
+  const [comments, setComments] = useState([]);
   let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newReview = {reviews: reviews };
-    console.log("submitted ", newReview);
+    const newComment = {comments:comments };
+    console.log("submitted ", newComment);
     try {
       const response = await fetch("http://localhost:5000/", {
         method: "POST",
         headers: { "Content-type": "application/json" },
-        body: JSON.stringify(newReview),
+        body: JSON.stringify(newComment),
       });
       if (!response.ok) {
         throw Error("POST request failed");
       }
       const data = await response.json();
       // console.log(data);
-      navigate(`/tasks/${data.Insertedid}`);
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -33,12 +33,12 @@ export default function AddNewReview() {
         <input
           required
           type="text"
-          value={reviews}
-          onChange={(e) => setReviews(arr => [...arr, e.target.value])}
+          value={comments}
+          onChange={(e) => setComments(arr => [...arr, e.target.value])}
           //still working on
         ></input>
       </div>
-      <input type="submit" value="Save movie" />
+      <input type="submit" value="Submit your comment" />
     </form>
   );
 }
