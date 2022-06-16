@@ -30,6 +30,15 @@ router.get('/', async function(req, res) {
   }
 })
 
+router.get('/movies', async function(req, res) {
+  try {
+      const movies = await db.readAll();
+      res.json(movies);
+  } catch(err) {
+      console.log(err);
+  }
+})
+
 router.get('/:movieTitle', async function(req, res) {
   try {
       const movie = await db.readOneDocument({title: req.params.movieTitle});
