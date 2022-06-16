@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import MoviesList from "./components/MoviesList";
 import React, { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import TaskDetails from "./components/TaskDetails";
+import MovieDetails from "./components/MovieDetails";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -39,7 +39,7 @@ function App() {
           <Route path="/:movieTitle" 
             element={
             <>
-              <TaskDetails 
+              <MovieDetails 
                 onAddTaskClicked={toggleShowForm}
                 showForm={showForm}
               />
