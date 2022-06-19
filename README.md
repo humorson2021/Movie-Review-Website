@@ -1,14 +1,13 @@
-# cs5610
-This is final project of Web Development
-Group member: Yuze Zhang
+# cs5610 final project
+This is final project of Web Development Course  
+Topic: Personal Review of Selected Movies  
+Group member: Yuze Zhang  
 
+## Introduction  
+The website bases on selected movies from IMDB TOP-250, I select 30-50 favourite movies and give personal review for them.  
+User could look through every webpage in my website and they could give their comments after logging in.
 
-In the client/server directory, you can run:
+## Progress
+Iteration 1: Construct the basis of website, connection between frontend and backend is not good and crash for profile/login webpage.  
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+URL of website on Heroku https://movieofyuze.herokuapp.com/  
