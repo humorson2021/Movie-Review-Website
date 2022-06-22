@@ -7,11 +7,14 @@
 // }
 
 import { useParams } from 'react-router-dom';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export default function TaskDetails({ onAddTaskClicked, showForm }) {
+  const headingRef = useRef(null);
     const {movieTitle} = useParams();
     console.log(movieTitle);
+    // headingRef.current.focus()
+
     // const [user, setUser] = useState([]);
     // useEffect(() => {
     //     async function fetchUser() {
@@ -31,7 +34,7 @@ export default function TaskDetails({ onAddTaskClicked, showForm }) {
     //   }, [taskId]);
     // console.log (params)
   return (
-    <div>
+    <div tabIndex={-1} ref={headingRef}>
       You are Viewing movie {movieTitle}'s details
       <button onClick={onAddTaskClicked}>
         {showForm? "Close" :"Add Comment"}

@@ -1,10 +1,11 @@
 // import res from "express/lib/response";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function AddComment() {
   const [comments, setComments] = useState([]);
   let navigate = useNavigate();
+  const commentRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,8 +30,10 @@ export default function AddComment() {
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-control">
-        <label>Review</label>
+        <label htmlFor="comment" ref={commentRef}>Comment</label>   
+                  {/* htmlFor and id for accessibility */}
         <input
+          id="comment"
           required
           type="text"
           value={comments}

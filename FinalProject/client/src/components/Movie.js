@@ -13,7 +13,8 @@ export default function Task({ movie, onDelete }) {
         <div className="nameIconContainer">
          {/* <Link to={`/tasks/${task.id}`}> <p>{task.title}</p> </Link> */}
          <Link to={`${movie.title}`}> <p>{movie.title}</p> </Link>
-          <FaTimes onClick={() => {onDelete(movie._id)}} />
+          <FaTimes role="button" aria-label="delete movie" tabIndex="0" onClick={() => {onDelete(movie._id)}} />
+          {/* tabIndex for accessibility, role:ARIA */}
         </div>
         <p>{movie.date}</p>
       </div>
