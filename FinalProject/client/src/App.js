@@ -17,14 +17,15 @@ function App() {
   const toggleShowForm = () => {
     setShowForm(!showForm);
   };
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, isLoading } = useAuth0();
   return (
     <div className="App">
       <nav>
         <Link to="/">Movies</Link>
         <Link to="/profile">Profile</Link>
       </nav>
-      {isAuthenticated?<LogoutButton />:<LoginButton />}
+      {isLoading?<img src="https://cdn.auth0.com/blog/auth0-react-sample/assets/loading.svg" alt="Loading"/>:
+      isAuthenticated?<LogoutButton />:<LoginButton />}
       <Routes>
           <Route path="/" 
             element={
