@@ -38,7 +38,7 @@ export default function MoviesList() {
   return (
     <>
       {isLoading ? (
-        <li> Loading </li>
+        <li> Loading... </li>
       ) : movies.length > 0 ? (
         <>
           {movies.map((item) => (
