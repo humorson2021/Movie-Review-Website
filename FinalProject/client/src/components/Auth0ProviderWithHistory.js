@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function Auth0ProviderWithHistory({ children }) {
     let navigate = useNavigate();
-    console.log(window.location.port);
-    console.log(window.location.origin);
     const onRedirect = (appState) => {
       navigate(appState?.returnTo || window.location.pathname);
     };
@@ -16,7 +14,7 @@ export default function Auth0ProviderWithHistory({ children }) {
         clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
         redirectUri={window.location.origin}
         onRedirectCallback={onRedirect}
-        // audience={process.env.REACT_APP_AUTH0_AUDIENCE}
+        audience={process.env.REACT_APP_AUTH0_AUDIENCE}
       >
         {children}
       </Auth0Provider>

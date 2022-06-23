@@ -7,7 +7,8 @@ export default function MoviesList() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`http://localhost:${process.env.PORT}/movies`);
+        // const response = await fetch(`/server/routes/index`);
+        const response = await fetch(`/movies`);
         if (!response.ok) {
           throw Error("Fetch failed");
         }
@@ -24,7 +25,7 @@ export default function MoviesList() {
   async function deleteClicked(deletedId) {
     console.log("clicked", deletedId);
     try {
-      const response = await fetch(`http://localhost:${process.env.PORT}/movies/${deletedId}`, {
+      const response = await fetch(`http://localhost:5000/movies/${deletedId}`, {
         method: "DELETE",
       });
       console.log(response);
