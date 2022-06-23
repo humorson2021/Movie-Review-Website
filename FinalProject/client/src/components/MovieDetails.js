@@ -9,33 +9,33 @@
 import { useParams } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from "react";
 
-export default function TaskDetails({ onAddTaskClicked, showForm }) {
+export default function MovieDetails({ onAddTaskClicked, showForm }) {
   const headingRef = useRef(null);
-    const {movieTitle} = useParams();
-    console.log(movieTitle);
+    const params = useParams();
+    // console.log(params);
     // headingRef.current.focus()
 
     // const [user, setUser] = useState([]);
-    // useEffect(() => {
-    //     async function fetchUser() {
-    //       try {
-    //         const response = await fetch(`http://localhost:5000/users?task=${taskId}`);
-    //         if (!response.ok) {
-    //           throw Error("Fetch failed");
-    //         }
-    //         const user = await response.json();
-         
-    //         console.log(user)
-    //       } catch (err) {
-    //         console.log("catch ", err);
-    //       }
-    //     }
-    //     fetchUser();
-    //   }, [taskId]);
-    // console.log (params)
+    useEffect(() => {
+        async function fetchMovie() {
+          try {
+            const response = await fetch(`/:movieTitle`);
+            if (!response.ok) {
+              throw Error("Fetch failed");
+            }
+            const movie = await response.to();
+            console.log(movie);
+          } catch (err) {
+            console.log("catch ", err);
+          }
+        }
+        fetchMovie();
+      }, []);
   return (
     <div tabIndex={-1} ref={headingRef}>
-      You are Viewing movie {movieTitle}'s details
+      <p>You are Viewing movie -- {params.movieTitle}'s details:</p>
+      <p>The rate on IMDB: </p>
+      <p>Personal review: </p>
       <button onClick={onAddTaskClicked}>
         {showForm? "Close" :"Add Comment"}
       </button>

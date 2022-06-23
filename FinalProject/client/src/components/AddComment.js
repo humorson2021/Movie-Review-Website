@@ -12,7 +12,7 @@ export default function AddComment() {
     const newComment = {comments:comments };
     console.log("submitted ", newComment);
     try {
-      const response = await fetch("http://localhost:5000/", {
+      const response = await fetch("/:movieTitle", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(newComment),
@@ -37,7 +37,7 @@ export default function AddComment() {
           required
           type="text"
           value={comments}
-          onChange={(e) => setComments(arr => [...arr, e.target.value])}
+          onChange={(e) => setComments((arr) => arr.push(e.target.value))}
           //still working on
         ></input>
       </div>

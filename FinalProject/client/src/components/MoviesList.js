@@ -7,7 +7,6 @@ export default function MoviesList() {
   useEffect(() => {
     async function fetchData() {
       try {
-        // const response = await fetch(`/server/routes/index`);
         const response = await fetch(`/movies`);
         if (!response.ok) {
           throw Error("Fetch failed");
@@ -22,28 +21,29 @@ export default function MoviesList() {
     fetchData();
   }, []);
 
-  async function deleteClicked(deletedId) {
-    console.log("clicked", deletedId);
-    try {
-      const response = await fetch(`http://localhost:5000/movies/${deletedId}`, {
-        method: "DELETE",
-      });
-      console.log(response);
+  // async function deleteClicked(deletedId) {
+  //   console.log("clicked", deletedId);
+  //   try {
+  //     const response = await fetch(`/movies/${deletedId}`, {
+  //       method: "DELETE",
+  //     });
+  //     console.log(response);
 
-    } catch (err) {
-      console.log(err);
-    }
-    const updatedMoives = movies.filter((item) => item._id !== deletedId);
-    setMovies(updatedMoives);
-  }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  //   const updatedMoives = movies.filter((item) => item.title !== deletedId);
+  //   setMovies(updatedMoives);
+  // }
   return (
     <>
       {isLoading ? (
         <li> Loading... </li>
       ) : movies.length > 0 ? (
         <>
+        <p><em>Movies' title and rate</em></p>
           {movies.map((item) => (
-            <Movie key={item._id} movie={item} onDelete={deleteClicked} />
+            <Movie key={item._id} movie={item} />
           ))}
         </>
       ) : (
