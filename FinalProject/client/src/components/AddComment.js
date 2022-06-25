@@ -41,7 +41,7 @@ export default function AddComment() {
           //still working on
         ></input>
       </div>
-      <input type="submit" value="Add your comment" />
+      <input type="submit" value="Submit your comment" />
     </form>
   );
 }

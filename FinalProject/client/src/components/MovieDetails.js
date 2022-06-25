@@ -9,7 +9,7 @@
 import { useParams } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from "react";
 
-export default function MovieDetails({ onAddTaskClicked, showForm }) {
+export default function MovieDetails({ onAddCommentClicked, showForm }) {
   const headingRef = useRef(null);
     const params = useParams();
     // console.log(params);
@@ -36,7 +36,7 @@ export default function MovieDetails({ onAddTaskClicked, showForm }) {
       <p>You are Viewing movie -- {params.movieTitle}'s details:</p>
       <p>The rate on IMDB: </p>
       <p>Personal review: </p>
-      <button onClick={onAddTaskClicked}>
+      <button onClick={onAddCommentClicked}>
         {showForm? "Close" :"Add Comment"}
       </button>
     </div>

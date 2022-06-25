@@ -41,7 +41,7 @@ function App() {
             element={
             <>
               <MovieDetails 
-                onAddTaskClicked={toggleShowForm}
+                onAddCommentClicked={toggleShowForm}
                 showForm={showForm}
               />
               {showForm && <AddComment />}
