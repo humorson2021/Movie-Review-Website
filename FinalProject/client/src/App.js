@@ -1,6 +1,7 @@
 import AddComment from "./components/AddComment";
 import Header from "./components/Header";
 import MoviesList from "./components/MoviesList";
+import MovieWebsites from "./components/MovieWebsites";
 import React, { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import MovieDetails from "./components/MovieDetails";
@@ -24,6 +25,11 @@ function App() {
         <Link to="/">Movies</Link>
         <Link to="/profile">Profile</Link>
       </nav>
+      <aside>
+        <ul>
+          <MovieWebsites />
+        </ul>
+      </aside>
       {isLoading?<img src="https://cdn.auth0.com/blog/auth0-react-sample/assets/loading.svg" alt="Loading"/>:
       isAuthenticated?<LogoutButton />:<LoginButton />}
       <Routes>

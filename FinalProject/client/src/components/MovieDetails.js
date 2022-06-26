@@ -11,7 +11,9 @@ import React, { useState, useEffect, useRef } from "react";
 
 export default function MovieDetails({ onAddCommentClicked, showForm }) {
   const headingRef = useRef(null);
+  const [movie, setMovie] = useState([]);
     const params = useParams();
+    console.log(params);
     // console.log(params);
     // headingRef.current.focus()
 
@@ -19,12 +21,19 @@ export default function MovieDetails({ onAddCommentClicked, showForm }) {
     useEffect(() => {
         async function fetchMovie() {
           try {
-            const response = await fetch(`/:movieTitle`);
+            const response = await fetch(`/api/${params.movieTitle}`
+            // , {
+            //   method:"POST",
+            //   headers:{"Content-type": "application/json"},
+            //   body: JSON.stringify({title: params.movieTitle})
+            // }
+            );
             if (!response.ok) {
               throw Error("Fetch failed");
             }
-            const movie = await response.to();
-            console.log(movie);
+            const data = await response.json();
+            console.log(response);
+            setMovie(data);
           } catch (err) {
             console.log("catch ", err);
           }
@@ -34,8 +43,8 @@ export default function MovieDetails({ onAddCommentClicked, showForm }) {
   return (
     <div tabIndex={-1} ref={headingRef}>
       <p>You are Viewing movie -- {params.movieTitle}'s details:</p>
-      <p>The rate on IMDB: </p>
-      <p>Personal review: </p>
+      <p>The rate on IMDB: {movie.rate}</p>
+      <p>Personal review: {movie.review}</p>
       <button onClick={onAddCommentClicked}>
         {showForm? "Close" :"Add Comment"}
       </button>

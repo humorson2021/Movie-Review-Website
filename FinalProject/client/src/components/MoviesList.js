@@ -7,11 +7,13 @@ export default function MoviesList() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`/movies`);
+        const response = await fetch(`/api/movies`);
         if (!response.ok) {
           throw Error("Fetch failed");
         }
         const data = await response.json();
+        console.log(response);
+        console.log(data);
         setMovies(data);
         setIsLoading(false);
       } catch (err) {
