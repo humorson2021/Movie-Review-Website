@@ -66,5 +66,16 @@ module.exports = {
         catch (err) {
             console.log(err);
         }
+    },
+
+    readAll: async function readAllWebsites() {
+        try {
+            const cursor = await client.db("cs5610").collection("movie_websites").find();
+            const data = cursor.toArray();
+            return data;
+        } catch (err) {
+            console.log(err);
+        }
+
     }
 }

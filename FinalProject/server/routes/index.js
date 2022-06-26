@@ -21,14 +21,14 @@ router.post('/', async function(req, res) {
   }
 });
 
-router.get('/', async function(req, res) {
-  try {
-      const movies = await db.readAll();
-      res.render('index', {movies: movies})
-  } catch(err) {
-      console.log(err);
-  }
-})
+// router.get('/', async function(req, res) {
+//   try {
+//       const movies = await db.readAll();
+//       res.render('index', {movies: movies})
+//   } catch(err) {
+//       console.log(err);
+//   }
+// })
 
 router.get('/movies', async function(req, res) {
   try {
@@ -42,12 +42,24 @@ router.get('/movies', async function(req, res) {
 router.get('/:movieTitle', async function(req, res) {
   try {
       const movie = await db.readOneDocument({title: req.params.movieTitle});
-      res.send(`The movie <<${movie.title}>> has rate ${movie.rate}`);
+      console.log(req.params.movieTitle);
+      res.json(movie);
   //     res.render('movie', movie);
   } catch(err) {
       console.log(err);
   }
 })
+
+router.get('/movieWebsites', async function(req, res) {
+  try {
+      const movieWebsites = await db.readAllWebsites();
+      res.json(movieWebsites);
+  } catch(err) {
+      console.log(err);
+  }
+})
+
+
 
 
 
