@@ -7,13 +7,15 @@ export default function MovieWebsites() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`/api/movieWebsites`);
+        const response = await fetch(`/web/movieWebsites`);
         if (!response.ok) {
           throw Error("Fetch failed");
         }
         const data = await response.json();
         setWebsites(data);
         setIsLoading(false);
+        console.log(response);
+        console.log(websites);
       } catch (err) {
         console.log("catch ", err);
       }

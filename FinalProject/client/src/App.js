@@ -10,6 +10,7 @@ import LogoutButton from "./components/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
 import Profile from "./components/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
+import "./App.css";
 
 function App() {
   const appName = "My movie reviews";
@@ -20,6 +21,7 @@ function App() {
   };
   const { isAuthenticated, isLoading } = useAuth0();
   return (
+    
     <div className="App">
       <nav>
         <Link to="/">Movies</Link>
@@ -39,7 +41,7 @@ function App() {
             <Header 
             app={appName}
             />
-            <ul><MoviesList /></ul>
+            <ul className="moviesList"><MoviesList /></ul>
             </>
           }></Route>
 

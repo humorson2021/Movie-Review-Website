@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.App aside {
+  width: 30%;
+  position: sticky;
+  left: 80%;
+  top: 20%;
+  margin: 2px;
+  text-align: left;
+  background-color: rgb(101, 226, 207);
+}
+
+.App .websiteContainer {
+  padding:2% 0;
+}
+
+.App .moviesList {
+  margin-right: 40%;
+}

@@ -11,9 +11,9 @@ export default function Website({ website }) {
   return (
     <li>
       <div className="taskContainer">
-        <div className="nameIconContainer">
+        <div className="websiteContainer">
          {/* <Link to={`/tasks/${task.id}`}> <p>{task.title}</p> </Link> */}
-         <Link to={`${website.url}`}> <p>{website.name}</p> </Link>
+         <a href={`${website.url}`} target="_blank" rel="noreferrer"> <p>{website.name}</p> </a>
           {/* <FaTimes role="button" aria-label="delete movie" tabIndex="0" onClick={() => {onDelete(movie.title)}} /> */}
           {/* tabIndex for accessibility, role:ARIA */}
         </div>
