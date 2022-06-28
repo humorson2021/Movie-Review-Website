@@ -13,8 +13,11 @@ export default function Task({ movie }) {
       <div className="taskContainer">
         <div className="nameIconContainer">
          {/* <Link to={`/tasks/${task.id}`}> <p>{task.title}</p> </Link> */}
-         <Link to={`${movie.title}`}> <p>{movie.title}</p> </Link>
-         <p>rate: {movie.rate}</p>
+         <Link to={`${movie.title}`}>
+           <img src={`${movie.image}`} width="45" height="67" alt={`${movie.title}`} />
+           <p>{movie.title}</p>
+         </Link>
+           <p>rate: {movie.rate}</p>
           {/* <FaTimes role="button" aria-label="delete movie" tabIndex="0" onClick={() => {onDelete(movie.title)}} /> */}
           {/* tabIndex for accessibility, role:ARIA */}
         </div>

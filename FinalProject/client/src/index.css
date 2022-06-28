@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: aliceblue;
 }
 
 code {
@@ -22,15 +23,15 @@ code {
 .App
 {
   border: 1px solid steelblue;
-  margin: 20px;
+  /* margin: 20px; */
   padding: 20px;
 }
 
 .taskContainer
 {
-  background-color: lavender;
-  margin: 5px;
-  padding: 5px;
+  /* background-color: lavender; */
+  margin: 3px;
+  padding: 3px;
 }
 
 .nameIconContainer{

@@ -11,9 +11,6 @@ module.exports = {
         try {
             await client.connect();
             console.log("Connected to database");
-            // this.saveToDB({_id: 1, title:"12 Angry Men", rate: 8.9})
-            // this.saveToDB({_id: 2, title:"Fight Club", rate: 8.8})
-            // this.saveToDB({_id: 3, title:"Inception", rate: 8.7})
         } catch (err) {
             console.log(err);
         }
@@ -37,7 +34,6 @@ module.exports = {
         } catch (err) {
             console.log(err);
         }
-
     },
 
     readOneDocument: async function readOneDocument(query) {
@@ -68,14 +64,15 @@ module.exports = {
         }
     },
 
-    readAll: async function readAllWebsites() {
+    readAllWebsites: async function readAllWebsites() {
         try {
             const cursor = await client.db("cs5610").collection("movie_websites").find();
             const data = cursor.toArray();
+            console.log(data);
+            console.log("is this empty?");
             return data;
         } catch (err) {
             console.log(err);
         }
-
     }
 }

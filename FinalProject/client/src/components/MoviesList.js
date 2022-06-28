@@ -12,8 +12,6 @@ export default function MoviesList() {
           throw Error("Fetch failed");
         }
         const data = await response.json();
-        console.log(response);
-        console.log(data);
         setMovies(data);
         setIsLoading(false);
       } catch (err) {

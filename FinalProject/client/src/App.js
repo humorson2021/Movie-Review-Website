@@ -10,6 +10,7 @@ import LogoutButton from "./components/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
 import Profile from "./components/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Search from "./components/Search";
 import "./App.css";
 
 function App() {
@@ -26,14 +27,16 @@ function App() {
       <nav>
         <Link to="/">Movies</Link>
         <Link to="/profile">Profile</Link>
+        <Link to="/search">Search</Link>
       </nav>
-      <aside>
+      {isLoading?<img src="https://cdn.auth0.com/blog/auth0-react-sample/assets/loading.svg" alt="Loading"/>:
+      isAuthenticated?<LogoutButton />:<LoginButton />}
+      <aside id="asideWeb">
         <ul>
           <MovieWebsites />
         </ul>
       </aside>
-      {isLoading?<img src="https://cdn.auth0.com/blog/auth0-react-sample/assets/loading.svg" alt="Loading"/>:
-      isAuthenticated?<LogoutButton />:<LoginButton />}
+      <div className="afterAside">
       <Routes>
           <Route path="/" 
             element={
@@ -57,8 +60,10 @@ function App() {
           }></Route>
 
           <Route path="/profile" element={<ProtectedRoute Component={Profile} />}></Route>
+          <Route path="/search" element={<Search/>}></Route>
           <Route path="*" element={<p>Nothing found here!</p>}></Route>
         </Routes>
+        </div>
       </div>
   );
 }
