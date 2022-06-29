@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import MoviesList from "./components/MoviesList";
 import MovieWebsites from "./components/MovieWebsites";
 import React, { useState } from "react";
-import { Routes, Route, Link, useParams } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import MovieDetails from "./components/MovieDetails";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";

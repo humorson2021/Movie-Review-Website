@@ -1,17 +1,35 @@
 // import res from "express/lib/response";
 import React, { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function AddComment() {
   const [comments, setComments] = useState([]);
+  // const [inputText, setInputText] = useState("");
   let navigate = useNavigate();
+  // let history = useHistory();
   const commentRef = useRef(null);
+
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
+  if (!isAuthenticated) {
+    loginWithRedirect(
+      {appState: {
+      returnTo: window.location.pathname
+    }
+  });
+  }
+
+  let inputHandler = (e) => {
+    setComments(e.target.value);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newComment = {comments:comments };
     console.log("submitted ", newComment);
+
     try {
+
       const response = await fetch("/:movieTitle", {
         method: "POST",
         headers: { "Content-type": "application/json" },
@@ -37,7 +55,7 @@ export default function AddComment() {
           required
           type="text"
           value={comments}
-          onChange={(e) => setComments((arr) => arr.push(e.target.value))}
+          onChange={inputHandler}
           //still working on
         ></input>
       </div>
