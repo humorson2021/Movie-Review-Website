@@ -14,7 +14,7 @@ export default function Task({ movie }) {
         <div className="nameIconContainer">
          {/* <Link to={`/tasks/${task.id}`}> <p>{task.title}</p> </Link> */}
          <Link to={`${movie.title}`}>
-           <img src={`${movie.image}`} width="45" height="67" alt={`${movie.title}`} />
+           <img src={`${movie.image}`} width="45" height="60" alt={`${movie.title}`} />
            <p>{movie.title}</p>
          </Link>
            <p>rate: {movie.rate}</p>

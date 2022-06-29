@@ -42,9 +42,11 @@ export default function MovieDetails({ onAddCommentClicked, showForm }) {
       }, []);
   return (
     <div tabIndex={-1} ref={headingRef}>
-      <p>You are Viewing movie -- {params.movieTitle}'s details:</p>
+      <p>Movie -- {params.movieTitle} :</p>
+      <img src={`${movie.image}`} width="80" height="120" alt={`${movie.title}`} />
       <p>The rate on IMDB: {movie.rate}</p>
       <p>Personal review: {movie.review}</p>
+      <p>Users' comments: {movie.comments?(`${movie.comments}`): ("no comment yet")}</p>
       <button onClick={onAddCommentClicked}>
         {showForm? "Close" :"Add Comment"}
       </button>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ListOfMovie from "./ListOfMovie";
-import TextField from "@mui/material/TextField";
+// import TextField from "@mui/material/TextField";
 
 // const searchInput = document.querySelector("[movie-search]")
 
@@ -16,26 +17,46 @@ import TextField from "@mui/material/TextField";
 
 export default function Search() {
     const [inputText, setInputText] = useState("");
+    let navigate = useNavigate();
 
     let inputHandler = (e) => {
         //convert input text to lower case
-        var lowerCase = e.target.value.toLowerCase();
+        let lowerCase = e.target.value.toLowerCase();
         setInputText(lowerCase);
       };
+    function submitHandler(e) {
+        e.preventDefault();
+        navigate(`./${inputText}`, { replace: true });
+    }
   return (
       <>
-        <div className="main">
+      <div className="main">
+      <form onSubmit={submitHandler}>
       <div className="search">
-        <TextField
-          id="outlined-basic"
-          onChange={inputHandler}
-          variant="outlined"
-          fullWidth
-          label="Search"
-        />
-      </div>
+                    <input
+                        type="text"
+                        id="search_field"
+                        className="form-control"
+                        onChange={inputHandler}
+                    />
+        </div>
+        </form>
       <ListOfMovie input={inputText} />
     </div>
     </>
     );
 }
+
+
+    //   <div className="search">
+    //     <TextField
+    //       id="outlined-basic"
+    //       onChange={inputHandler}
+    //     //   variant="outlined"
+    //       variant="standard"
+    //       fullWidth
+    //       label="Search"
+    //     //   onSubmit={submitHandler}
+    //       reDirect
+    //     />
+    //   </div> 

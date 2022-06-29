@@ -1,7 +1,6 @@
 .App {
   text-align: center;
-  background-image: url("../public/background.jpg");
-  background-color: rgb(31, 18, 18);
+  /* background-color: rgb(31, 18, 18); */
 }
 
 .App-logo {
@@ -40,9 +39,9 @@
 }
 
 .App #asideWeb {
-  width: 30%;
+  width: 23%;
   position: sticky;
-  left: 70%;
+  left: 77%;
   top: 20%;
   float: right;
   /* margin: 2px; */
@@ -54,19 +53,29 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  /* margin-block-start: 0;
-  margin-block-end: 0;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px; */
 }
 .App li {
   list-style-type: none;
 }
+.App li a {
+  display: flex;
+}
+.App li a p {
+  overflow: hidden;
+  white-space: nowrap;
+  /* text-overflow:ellipsis; */
+}
+.App li a img {
+  margin-right: 1rem;
+}
 
 .App .afterAside {
   margin-right: 30%;
+  text-align: center;
 }
-
+a {
+  color: white;
+}
 a:visited {
   color: pink;
 }
@@ -75,6 +84,6 @@ em {
   color: antiquewhite;
 }
 
-.App .search {
+/* .App .search {
   background-color: beige;
-}
+} */

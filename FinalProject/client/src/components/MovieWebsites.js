@@ -14,8 +14,6 @@ export default function MovieWebsites() {
         const data = await response.json();
         setWebsites(data);
         setIsLoading(false);
-        console.log(response);
-        console.log(websites);
       } catch (err) {
         console.log("catch ", err);
       }

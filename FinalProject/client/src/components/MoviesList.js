@@ -51,17 +51,7 @@ export default function MoviesList() {
       )}
     </>
   );
-  // return tasks.length > 0 ? (
-  //   <>
-  //     {tasks.map((item) => (
-  //       <Task key={item.id} task={item} onDelete={deleteClicked} />
-  //     ))}
-  //   </>
-  // ) : (
-  //   <li>No Tasks Left</li>
-  // );
 }
-
 // async function deleteClicked(deletedId) {
 //     console.log("clicked", deletedId);
 //     const response = await fetch(`http://localhost:5000/tasks/${deletedId}`, {
@@ -70,13 +60,5 @@ export default function MoviesList() {
 //     const updatedTasks = tasks.filter((item) => item.id !== deletedId);
 //     setTasks(updatedTasks);
 //   }
-//   return tasks.length > 0 ? (
-//     <>
-//       {tasks.map((item) => (
-//         <Task key={item.id} task={item} onDelete={deleteClicked} />
-//       ))}
-//     </>
-//   ) : (
-//     <li>No Tasks Left</li>
-//   );
+//   ;
 

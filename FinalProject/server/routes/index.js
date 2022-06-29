@@ -7,7 +7,8 @@ const { title } = require('process');
 
 router.get('/newmovie', function (req, res) {
   res.render('form');
-  res.sendFile('newmovie.html');
+  // res.sendFile('newmovie.html');
+  res.sendFile(path.join(__dirname, '../public', 'newmovie.html'));
 });
 
 router.post('/', async function(req, res) {

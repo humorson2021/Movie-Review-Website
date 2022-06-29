@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
-export default function ListOfMovie(props) {
+export default function ListOfSearch() {
+    let {inputText} = useParams();
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
@@ -23,12 +24,13 @@ export default function ListOfMovie(props) {
     }, []);
 
     const filteredMovies = movies.filter((el) => {
-        if (props.input === '') {
+        if (inputText === '') {
             return el;
         } else {
-            return el.title.toLowerCase().includes(props.input);
+            return el.title.toLowerCase().includes(inputText);
         }
     })
+
     return (
         <>
       {isLoading ? (
@@ -37,7 +39,7 @@ export default function ListOfMovie(props) {
           <>
         <ul>
             {filteredMovies.map((item) => (
-                <li key={item.id}><Link to={`../${item.title}`}>{item.title}</Link></li>
+                <li key={item.id}><Link to={`../${item.title}`}>{item.title}</Link> rate:{item.rate}</li>
             ))}
         </ul>
         </>
