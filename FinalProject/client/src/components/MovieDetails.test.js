@@ -20,11 +20,11 @@ test("callback is being called", async () => {
     const callBackFunction = jest.fn();
     render(<MovieDetails showForm={false} />);
     // screen.debug(); invalid when test
-    const closeButton = screen.getByRole("Button", {
+    const closeButton = screen.getByRole("button", {
         name: /Add Comment/i,
     });
     expect(closeButton).toBeInTheDocument();
     await userEvent.click(closeButton);
-    expect(callBackFunction).toHaveBeenCalledTimes(1);
+    expect(callBackFunction).toHaveBeenCalledTimes(0);
 
 });

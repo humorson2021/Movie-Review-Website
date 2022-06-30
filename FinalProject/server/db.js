@@ -74,5 +74,24 @@ module.exports = {
         } catch (err) {
             console.log(err);
         }
-    }
+    },
+
+    saveComment: async function saveComment(query, update) {
+        try {
+            const result = await client.db("cs5610").collection("movies").updateOne(query, {$push:update});
+            return result;
+        } catch (err) {
+            console.log(err);
+        }
+    },
+
+    // readComment: async function readComment(query) {
+    //     try {
+    //         const cursor = await client.db("cs5610").collection("movie_comments").findOne(query);
+    //         const data = cursor.toArray();
+    //         return data;
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // }
 }

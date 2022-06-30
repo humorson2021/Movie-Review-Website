@@ -39,7 +39,7 @@ export default function ListOfSearch() {
           <>
         <ul>
             {filteredMovies.map((item) => (
-                <li key={item.id}><Link to={`../${item.title}`}>{item.title}</Link> rate:{item.rate}</li>
+                <li key={item.id} className="searchList"><Link to={`../${item.title}`}>{item.title}</Link> rate:{item.rate}</li>
             ))}
         </ul>
         </>

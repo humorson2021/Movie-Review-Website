@@ -13,8 +13,9 @@ export default function MovieDetails({ onAddCommentClicked, showForm }) {
   const headingRef = useRef(null);
   const [movie, setMovie] = useState([]);
   const [film, setFilm] = useState([]);
-    const params = useParams();
-    console.log(params);
+  // const [comment, setComment] = useState([]);
+
+  const params = useParams();
     // console.log(params);
     // headingRef.current.focus()
 
@@ -41,6 +42,13 @@ export default function MovieDetails({ onAddCommentClicked, showForm }) {
             }
             const data2 = await response2.json();
             setFilm(data2.Search[0]);
+
+            // const response3 = await fetch(`/api/getcomment/${params.movieTitle}`);
+            // if (!response3.ok) {
+            //   throw Error("Fetch failed");
+            // }
+            // const data3 = await response3.json();
+            // setComment(data3);
           } 
           catch (err) {
             console.log("catch ", err);
@@ -57,7 +65,7 @@ export default function MovieDetails({ onAddCommentClicked, showForm }) {
       <li>Screening time: {film.Year}</li>
       <li>The rate on IMDB: {movie.rate}</li>
       <li>Personal review: {movie.review}</li>
-      <li>Users' comments: {movie.comments?(`${movie.comments}`): ("no comment yet")}</li>
+      <li>Users' comments: {movie.comments?(movie.comments.map((el) => <li>{el}</li>)): ("no comment yet")}</li>
       <button onClick={onAddCommentClicked}>
         {showForm? "Close" :"Add Comment"}
       </button>

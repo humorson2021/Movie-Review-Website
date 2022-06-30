@@ -1,16 +1,17 @@
 // import res from "express/lib/response";
-import React, { useState, useRef } from "react";
-import { useNavigate} from "react-router-dom";
+import React, { useRef, useState, useEffect } from "react";
+import { useNavigate, useParams} from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function AddComment() {
   const [comments, setComments] = useState([]);
   // const [inputText, setInputText] = useState("");
   let navigate = useNavigate();
-  // let history = useHistory();
+  const params = useParams();
   const commentRef = useRef(null);
 
-  const { isAuthenticated, loginWithRedirect } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, user } = useAuth0();
+
   if (!isAuthenticated) {
     loginWithRedirect(
       {appState: {
@@ -18,19 +19,31 @@ export default function AddComment() {
     }
   });
   }
-
-  let inputHandler = (e) => {
-    setComments(e.target.value);
-  }
+  //   useEffect(() => {
+  //   async function fetchComments() {
+  //     try {
+  //       const response = await fetch(`/api/comment/${params.movieTitle}`);
+  //       if (!response.ok) {
+  //         throw Error("Fetch failed");
+  //       }
+  //       const data = await response.json();
+  //       setComments(data.comments);
+  //     } catch (err) {
+  //       console.log("catch ", err);
+  //     }
+  //   };
+  //   fetchComments();
+  // }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newComment = {comments:comments };
-    console.log("submitted ", newComment);
+    const newComment = {comments: comments};
+    // setComments(newComment);
 
     try {
-
-      const response = await fetch("/:movieTitle", {
+      console.log(newComment);
+      console.log(params.movieTitle);
+      const response = await fetch(`/api/comment/${params.movieTitle}`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(newComment),
@@ -46,16 +59,16 @@ export default function AddComment() {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id="commentForm">
       <div className="form-control">
         <label htmlFor="comment" ref={commentRef}>Comment</label>   
                   {/* htmlFor and id for accessibility */}
         <input
-          id="comment"
+          id="comments"
           required
           type="text"
           value={comments}
-          onChange={inputHandler}
+          onChange={(e)=> setComments(e.target.value)}
           //still working on
         ></input>
       </div>

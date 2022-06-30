@@ -59,6 +59,10 @@
 }
 .App li a {
   display: flex;
+  flex-direction: row;
+}
+.App .searchList a {
+  flex-direction: column;
 }
 .App li a p {
   overflow: hidden;
@@ -76,12 +80,27 @@
 a {
   color: white;
 }
-a:visited {
+.App a:visited {
   color: pink;
 }
 
 em {
   color: antiquewhite;
+}
+
+.navContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 576px) {
+  .navContainer {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .navbar-toggler {
+    display: none;
+  }
 }
 
 /* .App .search {

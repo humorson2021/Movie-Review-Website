@@ -27,7 +27,7 @@ export default function MovieWebsites() {
         <li> Loading... </li>
       ) : (
         <>
-        <p><em>Interesting external movie websites:</em></p>
+        <li><em>Interesting external movie websites:</em></li>
           {websites.map((item) => (
             <Website key={item._id} website={item} />
           ))}

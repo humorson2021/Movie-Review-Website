@@ -51,6 +51,30 @@ router.get('/:movieTitle', async function(req, res) {
   }
 })
 
+router.post('/comment/:movieTitle', async function(req, res) {
+    try {
+        const change = {comments:res.body.comments};
+        console.log(change);
+        const comments = await db.saveComment({title: req.params.movieTitle}, change);
+        res.json(comments);
+    //     res.render('movie', movie);
+    } catch(err) {
+        console.log(err);
+    }
+  }
+)
+
+// router.get('/getcomment/:movieTitle', async function(req, res) {
+//   try {
+//       const comments = await db.readComment({movie: req.params.movieTitle});
+//       res.json(comments);
+//   //     res.render('movie', movie);
+//   } catch(err) {
+//       console.log(err);
+//   }
+// }
+// )
+
 router.get('/movieWebsites', async function(req, res) {
   try {
       const movieWebsites = await db.readAllWebsites();
