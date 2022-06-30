@@ -14,7 +14,6 @@ export default function MovieWebsites() {
           throw Error("Fetch failed");
         }
         const data = await response.json();
-        console.log(data);
         setWebsites(data);
 
         const response2 = await fetch(`/web/movieSources`);
@@ -22,7 +21,6 @@ export default function MovieWebsites() {
           throw Error("Fetch failed");
         }
         const data2 = await response2.json();
-        console.log(data2)
         setSources(data2);
 
         setIsLoading(false);

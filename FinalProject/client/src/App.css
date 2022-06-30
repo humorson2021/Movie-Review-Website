@@ -85,7 +85,7 @@ a {
 }
 
 em {
-  color: antiquewhite;
+  color: white;
 }
 
 .navContainer {
@@ -100,6 +100,9 @@ em {
   }
   .navbar-toggler {
     display: none;
+  }
+  .nameIconContainer {
+    justify-content: none;
   }
 }
 

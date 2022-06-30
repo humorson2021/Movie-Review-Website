@@ -53,7 +53,7 @@ router.get('/:movieTitle', async function(req, res) {
 
 router.post('/comment/:movieTitle', async function(req, res) {
     try {
-        const change = {comments:res.body.comments};
+        const change = {comments:req.body.comments};
         console.log(change);
         const comments = await db.saveComment({title: req.params.movieTitle}, change);
         res.json(comments);

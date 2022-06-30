@@ -39,6 +39,7 @@ export default function Search() {
                         className="form-control"
                         onChange={inputHandler}
                     />
+                    <label for="search_field">search movie</label>
         </div>
         </form>
       <ListOfMovie input={inputText} />
