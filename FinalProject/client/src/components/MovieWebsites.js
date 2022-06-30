@@ -3,6 +3,8 @@ import Website from "./Website";
 
 export default function MovieWebsites() {
   const [websites, setWebsites] = useState([]);
+  const [sources, setSources] = useState([]);
+
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     async function fetchData() {
@@ -12,7 +14,17 @@ export default function MovieWebsites() {
           throw Error("Fetch failed");
         }
         const data = await response.json();
+        console.log(data);
         setWebsites(data);
+
+        const response2 = await fetch(`/web/movieSources`);
+        if (!response2.ok) {
+          throw Error("Fetch failed");
+        }
+        const data2 = await response2.json();
+        console.log(data2)
+        setSources(data2);
+
         setIsLoading(false);
       } catch (err) {
         console.log("catch ", err);
@@ -29,6 +41,10 @@ export default function MovieWebsites() {
         <>
         <li><em>Interesting external movie websites:</em></li>
           {websites.map((item) => (
+            <Website key={item._id} website={item} />
+          ))}
+        <li><em>Top5 external movie sources:</em></li>
+          {sources.map((item) => (
             <Website key={item._id} website={item} />
           ))}
         </>

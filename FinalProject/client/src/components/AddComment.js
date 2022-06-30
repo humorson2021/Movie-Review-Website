@@ -19,6 +19,8 @@ export default function AddComment() {
     }
   });
   }
+
+  useEffect(() => commentRef.current.focus());
   //   useEffect(() => {
   //   async function fetchComments() {
   //     try {
@@ -59,12 +61,13 @@ export default function AddComment() {
     }
   };
   return (
-    <form onSubmit={handleSubmit} id="commentForm">
-      <div className="form-control">
+    <form onSubmit={handleSubmit}>
+      <div className="form-control" id="commentForm">
         <label htmlFor="comment" ref={commentRef}>Comment</label>   
                   {/* htmlFor and id for accessibility */}
         <input
           id="comments"
+          ref={commentRef}
           required
           type="text"
           value={comments}

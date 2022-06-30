@@ -75,14 +75,23 @@ router.post('/comment/:movieTitle', async function(req, res) {
 // }
 // )
 
-router.get('/movieWebsites', async function(req, res) {
-  try {
-      const movieWebsites = await db.readAllWebsites();
-      res.json(movieWebsites);
-  } catch(err) {
-      console.log(err);
-  }
-})
+// router.get('/movieWebsites', async function(req, res) {
+//   try {
+//       const movieWebsites = await db.readAllWebsites();
+//       res.json(movieWebsites);
+//   } catch(err) {
+//       console.log(err);
+//   }
+// })
+
+// router.get('/movieSources', async function(req, res) {
+//   try {
+//       const movieWebsites = await db.readAllSources();
+//       res.json(movieWebsites);
+//   } catch(err) {
+//       console.log(err);
+//   }
+// })
 
 
 

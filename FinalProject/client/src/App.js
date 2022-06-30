@@ -36,7 +36,7 @@ function App() {
           <MovieWebsites />
         </ul>
       </aside>
-      <div className="afterAside">
+      <div className="afterAside" role="contentinfo">
       <Routes>
           <Route path="/" 
             element={

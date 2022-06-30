@@ -41,7 +41,7 @@ export default function MoviesList() {
         <li> Loading... </li>
       ) : movies.length > 0 ? (
         <>
-        <p><em>Movies' title and rate</em></p>
+        <li><em>Movies' title and rate</em></li>
           {movies.map((item) => (
             <Movie key={item._id} movie={item} />
           ))}
@@ -54,7 +54,7 @@ export default function MoviesList() {
 }
 // async function deleteClicked(deletedId) {
 //     console.log("clicked", deletedId);
-//     const response = await fetch(`http://localhost:5000/tasks/${deletedId}`, {
+//     const response = await fetch(`https://localhost:5000/tasks/${deletedId}`, {
 //       method: "DELETE",
 //     });
 //     const updatedTasks = tasks.filter((item) => item.id !== deletedId);

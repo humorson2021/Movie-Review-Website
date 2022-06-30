@@ -12,4 +12,14 @@ router.get('/movieWebsites', async function(req, res) {
     }
   })
 
+
+router.get('/movieSources', async function(req, res) {
+    try {
+        const movieSources = await db.readAllSources();
+        res.json(movieSources);
+    } catch(err) {
+        console.log(err);
+    }
+  })
+
   module.exports = router;

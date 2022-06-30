@@ -68,8 +68,16 @@ module.exports = {
         try {
             const cursor = await client.db("cs5610").collection("movie_websites").find();
             const data = cursor.toArray();
-            console.log(data);
-            console.log("is this empty?");
+            return data;
+        } catch (err) {
+            console.log(err);
+        }
+    },
+
+    readAllSources: async function readAllSources() {
+        try {
+            const cursor = await client.db("cs5610").collection("movie_resources").find();
+            const data = cursor.toArray();
             return data;
         } catch (err) {
             console.log(err);
