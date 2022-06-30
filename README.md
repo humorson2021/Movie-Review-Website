@@ -10,6 +10,9 @@ User could look through every webpage in my website and they could give their co
 ## Progress
 Iteration 1: Construct the basis of website, connection between frontend and backend is not good and crash for profile/login webpage.  
 Iteration 2: Solve problems in authentication and fetch from backend, update style of movie details, introduce new collection: comments for every login user who wants to give their comment on specific movie but still trying figure out how to push to this comment array.  
-![ScreenShot](/FinalProject/screenshot/I2.png)
+![ScreenShot](/FinalProject/screenshot/I2.png)  
+Iteration 3: Refine whole website(footer, color ratio, navbar with 2 formats) add some tests, redirect to login page when anonymous user try to add comment, refine accessibility, external API of OMDB usage, search instant and search result pages.  
+![ScreenShot](/FinalProject/screenshot/I3.png)  
+
 
 URL of website on Heroku: https://movieofyuze.herokuapp.com/  
