@@ -17,7 +17,17 @@ Iteration 3: Refine whole website(footer, color ratio, navbar with 2 formats) ad
 Accessibility  
 desktop:  
 ![ScreenShot](/FinalProject/screenshot/homeOnDesktop.png)  
+![ScreenShot](/FinalProject/screenshot/DetailOnD.png)
+![ScreenShot](/FinalProject/screenshot/ProfileOnD.png)
+![ScreenShot](/FinalProject/screenshot/SearchOnD.png)
+![ScreenShot](/FinalProject/screenshot/SearchResultOnD.png)
+
 mobile:
 ![ScreenShot](/FinalProject/screenshot/homeOnMobile.png)  
+![ScreenShot](/FinalProject/screenshot/DetailOnM.png)
+![ScreenShot](/FinalProject/screenshot/ProfileOnM.png)
+![ScreenShot](/FinalProject/screenshot/SearchOnM.png)
+![ScreenShot](/FinalProject/screenshot/SearchResultOnM.png)
+
 
 URL of website on Heroku: https://movieofyuze.herokuapp.com/  

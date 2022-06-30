@@ -65,10 +65,10 @@ export default function MovieDetails({ onAddCommentClicked, showForm }) {
       <li>Screening time: {film.Year}</li>
       <li>The rate on IMDB: {movie.rate}</li>
       <li>Personal review: {movie.review}</li>
-      <li>Users' comments: {movie.comments?(movie.comments.map((el) => <li>{el}</li>)): ("no comment yet")}</li>
-      <button onClick={onAddCommentClicked}>
+      <li>Users' comments: <ul>{movie.comments?(movie.comments.map((el) => <li>{el}</li>)): ("no comment yet")}</ul></li>
+      <li><button onClick={onAddCommentClicked}>
         {showForm? "Close" :"Add Comment"}
-      </button>
+      </button></li>
       </ul>
     </div>
   )
