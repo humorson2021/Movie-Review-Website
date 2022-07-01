@@ -71,6 +71,7 @@ export default function AddComment() {
           required
           type="text"
           value={comments}
+          autoComplete="off"
           onChange={(e)=> setComments(e.target.value)}
           //still working on
         ></input>

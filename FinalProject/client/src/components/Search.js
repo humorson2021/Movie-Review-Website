@@ -38,8 +38,9 @@ export default function Search() {
                         id="search_field"
                         className="form-control"
                         onChange={inputHandler}
+                        autoComplete="off"
                     />
-                    <label for="search_field">search movie</label>
+                    <label for="search_field"></label>
         </div>
         </form>
       <ListOfMovie input={inputText} />
